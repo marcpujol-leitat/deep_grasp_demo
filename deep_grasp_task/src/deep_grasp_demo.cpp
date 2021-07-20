@@ -49,8 +49,7 @@
 #include <iostream>
 
 #include <geometric_shapes/shape_operations.h>
-//#include <moveit_task_constructor_msgs/SampleGraspPosesAction.h>
-#include <grasping_msgs/GraspPlanningAction.h>
+#include <moveit_task_constructor_msgs/SampleGraspPosesAction.h>
 #include <actionlib/client/simple_action_client.h>
 
 constexpr char LOGNAME[] = "deep_grasp_demo";
@@ -225,7 +224,7 @@ int main(int argc, char** argv)
   if (deep_pick_place_task.plan())
   {
     ROS_INFO_NAMED(LOGNAME, "Planning succeded");
-    if (pnh.param("execute", true))
+    if (pnh.param("execute", false))
     {
       deep_pick_place_task.execute();
       ROS_INFO_NAMED(LOGNAME, "Execution complete");
